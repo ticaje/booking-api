@@ -6,16 +6,16 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Policies\Calendar\Disabling\CQRS\Aggregate;
+namespace Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\Aggregate;
 
 use DateInterval;
 use DatePeriod;
 use DateTime;
-use Ticaje\BookingApi\Application\Policies\Calendar\Disabling\CQRS\PeriodSignature;
+use Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\PeriodSignature;
 
 /**
  * Class WeekDays
- * @package Ticaje\BookingApi\Application\Policies\Calendar\Disabling\CQRS\Aggregate
+ * @package Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\Aggregate
  */
 class WeekDays implements PeriodSignature
 {

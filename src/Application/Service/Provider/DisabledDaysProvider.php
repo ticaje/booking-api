@@ -9,8 +9,8 @@ declare(strict_types=1);
 namespace Ticaje\BookingApi\Application\Service\Provider;
 
 use Exception;
-use Ticaje\BookingApi\Application\Policies\Calendar\Disabling\CQRS\Query;
-use Ticaje\BookingApi\Application\Policies\Calendar\Disabling\CQRS\QuerySignature;
+use Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\Query;
+use Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\QuerySignature;
 use Ticaje\BookingApi\Application\Signatures\Provider\DisabledDaysGatewaySignature;
 use Ticaje\BookingApi\Application\Signatures\Provider\DisabledDaysProviderSignature;
 use Ticaje\Contract\Application\Service\ServiceLocatorInterface;

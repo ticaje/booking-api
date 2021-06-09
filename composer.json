@@ -19,7 +19,8 @@
 
     "require": {
         "php": "^7.1",
-        "ticaje/design-by-contract": "^1.0"
+        "ticaje/design-by-contract": "^1.0",
+        "ticaje/hexagonal": "^1.0"
     },
     "version": "1.0.0",
     "autoload": {

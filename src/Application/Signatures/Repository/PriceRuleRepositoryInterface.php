@@ -5,13 +5,13 @@ declare(strict_types=1);
  * @author Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Repository;
+namespace Ticaje\BookingApi\Application\Signatures\Repository;
 
 use Ticaje\Contract\Persistence\Repository\RepositoryInterface;
 
 /**
- * Interface PickupLocationRepositoryInterface
- * @package Ticaje\BookingApi\Application\Repository
+ * Interface PriceRuleRepositoryInterface
+ * @package Ticaje\BookingApi\Application\Signatures\Repository
  */
 interface PriceRuleRepositoryInterface extends RepositoryInterface
 {

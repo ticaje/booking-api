@@ -5,14 +5,14 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Repository;
+namespace Ticaje\BookingApi\Application\Signatures\Repository;
 
 use Ticaje\Contract\Persistence\Entity\EntityInterface;
 use Ticaje\Contract\Persistence\Repository\RepositoryInterface;
 
 /**
  * Interface CircuitRepositoryInterface
- * @package Ticaje\BookingApi\Application\Repository
+ * @package Ticaje\BookingApi\Application\Signatures\Repository
  */
 interface CircuitRepositoryInterface extends RepositoryInterface
 {

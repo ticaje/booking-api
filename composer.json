@@ -22,7 +22,7 @@
         "ticaje/design-by-contract": "^1.0",
         "ticaje/hexagonal": "^1.0"
     },
-    "version": "1.0.0",
+    "version": "1.0.1",
     "autoload": {
         "psr-4": {
             "Ticaje\\BookingApi\\": "src/"

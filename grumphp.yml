@@ -1,0 +1,30 @@
+parameters:
+  bin_dir: "../vendor/bin"
+  hide_circumvention_tip: true
+  ignore_unstaged_changes: false
+  process_async_limit: 10
+  process_async_wait: 1000
+  process_timeout: 60
+  ascii:
+    failed: grumphp-grumpy.txt
+    succeeded: grumphp-happy.txt
+  tasks:
+    composer:
+      no_check_all: false
+    git_blacklist:
+      keywords:
+        - "die"
+        - "var_dump("
+        - "exit"
+        - "console.log("
+        - "print_r"
+        - "echo"
+      triggered_by: ['php']
+    phpcsfixer: ~
+    phpversion:
+      project: '7.1'
+    securitychecker: ~
+    xmllint: ~
+    phpparser:
+      visitors:
+        declare_strict_types: ~

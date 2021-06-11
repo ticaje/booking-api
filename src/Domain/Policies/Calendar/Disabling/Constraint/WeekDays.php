@@ -6,32 +6,38 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\Aggregate;
+namespace Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS\Constraint;
 
 use DateInterval;
 use DatePeriod;
 use DateTime;
-use Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\PeriodSignature;
+use Ticaje\BookingApi\Domain\Signatures\PeriodSignature;
+use Ticaje\BookingApi\Domain\Signatures\WeekDaysSignature;
 
 /**
  * Class WeekDays
- * @package Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\Aggregate
+ * @package Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS\Constraint
  */
-class WeekDays implements PeriodSignature
+class WeekDays implements PeriodSignature, WeekDaysSignature
 {
+    /** @var int|string */
     private $numberOfYearsOn;
 
+    /** @var array */
     private $monthToCover;
 
+    /**
+     * WeekDays constructor.
+     *
+     * @param string $numberOfYearsOn
+     * @param string $monthToCover
+     */
     public function __construct(
         string $numberOfYearsOn,
         string $monthToCover
     ) {
-        $this->numberOfYearsOn = $numberOfYearsOn ?? 1;
-        $this->monthToCover = $monthToCover ? explode(',', $monthToCover) : [
-            1,
-            12,
-        ];
+        $this->numberOfYearsOn = $numberOfYearsOn ?? self::NUMBER_OF_YEARS_TO_COME;
+        $this->monthToCover = $monthToCover ? explode(',', $monthToCover) : self::MONTHS_RANGE;
     }
 
     /**

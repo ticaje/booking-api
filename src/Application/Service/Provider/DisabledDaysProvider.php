@@ -9,10 +9,10 @@ declare(strict_types=1);
 namespace Ticaje\BookingApi\Application\Service\Provider;
 
 use Exception;
-use Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\Query;
-use Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS\QuerySignature;
 use Ticaje\BookingApi\Application\Signatures\Provider\DisabledDaysGatewaySignature;
 use Ticaje\BookingApi\Application\Signatures\Provider\DisabledDaysProviderSignature;
+use Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS\Query;
+use Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS\QuerySignature;
 use Ticaje\Contract\Application\Service\ServiceLocatorInterface;
 use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
 
@@ -48,16 +48,18 @@ class DisabledDaysProvider implements DisabledDaysProviderSignature
      * @param array $items
      * @param       $format
      *
-     * @return false|string
-     * @throws Exception
-     * Specific business constraint, it should be refactored away into a domain component.
+     * @return string
      */
     private function transform(array $items, $format): string
     {
         /** @var QuerySignature $domainFetcher */
         $domainFetcher = $this->serviceLocator->get(Query::class, ['format' => $format]);
         foreach ($items as $item) {
-            $domainFetcher->interpret($item->getRule(), $item->getType());
+            try {
+                $domainFetcher->interpret($item->getRule(), $item->getType());
+            } catch (Exception $exception) {
+                // Log properly
+            }
         }
 
         return json_encode($domainFetcher->fetchList());

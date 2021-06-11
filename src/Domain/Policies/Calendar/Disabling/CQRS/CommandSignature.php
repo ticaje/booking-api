@@ -6,11 +6,11 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS;
+namespace Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS;
 
 /**
  * Interface CommandSignature
- * @package Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS
+ * @package Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS
  */
 interface CommandSignature
 {

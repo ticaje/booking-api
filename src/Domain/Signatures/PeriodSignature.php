@@ -6,16 +6,18 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS;
+namespace Ticaje\BookingApi\Domain\Signatures;
 
 use DatePeriod;
 
 /**
  * Interface PeriodSignature
- * @package Ticaje\BookingApi\Application\Signatures\Calendar\Disabling\CQRS
+ * @package Ticaje\BookingApi\Domain\Signatures
  */
 interface PeriodSignature
 {
+    const DEFAULT_FORMAT = 'Y-m-d';
+
     /**
      * @param array $data
      *

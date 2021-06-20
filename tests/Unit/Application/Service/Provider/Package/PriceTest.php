@@ -6,9 +6,9 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Test\Unit\Application\Service\Provider\Circuit;
+namespace Ticaje\BookingApi\Test\Unit\Application\Service\Provider\Package;
 
-use Ticaje\BookingApi\Application\Service\Provider\Circuit\Price;
+use Ticaje\BookingApi\Application\Service\Provider\Package\Price;
 use Ticaje\BookingApi\Application\Signatures\Provider\PriceProviderSignature;
 use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetPriceCommandSignature;
 use Ticaje\BookingApi\Application\UseCase\Command\GetPriceCommand;

@@ -7,7 +7,7 @@ declare(strict_types=1);
  * @author Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Signatures\Provider\Circuit;
+namespace Ticaje\BookingApi\Application\Signatures\Provider\Package;
 
 use Ticaje\BookingApi\Application\Signatures\Provider\ServiceProviderSignature;
 

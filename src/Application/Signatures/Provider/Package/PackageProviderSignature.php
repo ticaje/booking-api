@@ -7,21 +7,21 @@ declare(strict_types=1);
  * @author Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Signatures\Provider\Circuit;
+namespace Ticaje\BookingApi\Application\Signatures\Provider\Package;
 
 use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
 
 /**
- * Interface CircuitProviderSignature
+ * Interface PackageProviderSignature
  * @package Ticaje\BookingApi\Application\Signatures\Provider
  */
-interface CircuitProviderSignature
+interface PackageProviderSignature
 {
     /**
      * @param UseCaseCommandInterface $command
      * @return mixed
      */
-    public function instance(UseCaseCommandInterface $command): CircuitProviderSignature;
+    public function instance(UseCaseCommandInterface $command): PackageProviderSignature;
 
     /**
      * @return int

@@ -12,9 +12,9 @@ namespace Ticaje\BookingApi\Application\Signatures\UseCase\Command;
 use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
 
 /**
- * Interface GetCircuitCommandSignature
+ * Interface GetPackageCommandSignature
  * @package Ticaje\BookingApi\Application\Signatures\UseCase\Command
  */
-interface GetCircuitCommandSignature extends UseCaseCommandInterface
+interface GetPackageCommandSignature extends UseCaseCommandInterface
 {
 }

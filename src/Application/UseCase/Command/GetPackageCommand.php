@@ -11,13 +11,13 @@ namespace Ticaje\BookingApi\Application\UseCase\Command;
 
 use Ticaje\Contract\Traits\BaseDto;
 
-use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetCircuitCommandSignature;
+use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetPackageCommandSignature;
 
 /**
- * Class GetCircuitCommand
+ * Class GetPackageCommand
  * @package Ticaje\BookingApi\Application\UseCase\Command
  */
-class GetCircuitCommand implements GetCircuitCommandSignature
+class GetPackageCommand implements GetPackageCommandSignature
 {
     use BaseDto;
 

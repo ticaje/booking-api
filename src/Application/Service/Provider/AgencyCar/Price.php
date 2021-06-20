@@ -49,7 +49,12 @@ class Price extends BasePriceProvider implements PriceProviderSignature
         return null;
     }
 
-    private function normalizePrice($value)
+    /**
+     * @param $value
+     *
+     * @return array
+     */
+    private function normalizePrice($value): array
     {
         $normalizedArray = [];
         if (!$value) {// Guard clause

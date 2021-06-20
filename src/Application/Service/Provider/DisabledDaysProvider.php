@@ -22,10 +22,18 @@ use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
  */
 class DisabledDaysProvider implements DisabledDaysProviderSignature
 {
+    /** @var ServiceLocatorInterface */
     private $serviceLocator;
 
+    /** @var DisabledDaysGatewaySignature */
     private $disabledDaysGatewaySignature;
 
+    /**
+     * DisabledDaysProvider constructor.
+     *
+     * @param ServiceLocatorInterface      $serviceLocator
+     * @param DisabledDaysGatewaySignature $disabledDaysGatewaySignature
+     */
     public function __construct(
         ServiceLocatorInterface $serviceLocator,
         DisabledDaysGatewaySignature $disabledDaysGatewaySignature)

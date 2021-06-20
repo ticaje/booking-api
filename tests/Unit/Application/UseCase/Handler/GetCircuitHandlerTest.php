@@ -13,22 +13,22 @@ use Ticaje\Hexagonal\Application\Signatures\UseCase\HandlerInterface;
 
 use Ticaje\BookingApi\Test\Unit\Traits\HandlerTestTrait;
 use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
-use Ticaje\BookingApi\Application\UseCase\Command\GetCircuitCommand;
-use Ticaje\BookingApi\Application\UseCase\Handler\GetCircuitHandler;
+use Ticaje\BookingApi\Application\UseCase\Command\GetPackageCommand;
+use Ticaje\BookingApi\Application\UseCase\Handler\GetPackageHandler;
 
 /**
- * Class GetCircuitHandlerTest
+ * Class GetPackageHandlerTest
  * @package Ticaje\BookingApi\Test\Unit\Application\UseCase\Handler
  */
-class GetCircuitHandlerTest extends ParentClass
+class GetPackageHandlerTest extends ParentClass
 {
     use HandlerTestTrait;
 
     private $response;
 
-    private $command = GetCircuitCommand::class;
+    private $command = GetPackageCommand::class;
 
-    protected $class = GetCircuitHandler::class;
+    protected $class = GetPackageHandler::class;
 
     protected $interface = HandlerInterface::class;
 }

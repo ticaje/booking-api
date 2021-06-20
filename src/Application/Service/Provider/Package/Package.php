@@ -6,40 +6,45 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Service\Provider\Circuit;
+namespace Ticaje\BookingApi\Application\Service\Provider\Package;
 
-use Ticaje\BookingApi\Application\Repository\CircuitRepositoryInterface;
-use Ticaje\BookingApi\Application\Signatures\Provider\Circuit\CircuitProviderSignature;
+use Ticaje\BookingApi\Application\Repository\PackageRepositoryInterface;
+use Ticaje\BookingApi\Application\Signatures\Provider\Package\PackageProviderSignature;
 use Ticaje\Contract\Persistence\Entity\EntityInterface;
 use Ticaje\Contract\Persistence\Repository\RepositoryInterface as BaseRepositoryInterface;
 use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
 
 /**
- * Class Circuit
+ * Class Package
  * @package Ticaje\BookingApi\Application\Service\Provider
  */
-class Circuit implements CircuitProviderSignature
+class Package implements PackageProviderSignature
 {
-    /** @var CircuitRepositoryInterface $circuitRepository */
-    private $circuitRepository;
+    /** @var PackageRepositoryInterface $packageRepository */
+    private $packageRepository;
 
-    /** @var EntityInterface $circuit */
-    private $circuit;
+    /** @var EntityInterface $package */
+    private $package;
 
+    /**
+     * Package constructor.
+     *
+     * @param BaseRepositoryInterface $packageRepository
+     */
     public function __construct(
-        BaseRepositoryInterface $circuitRepository
+        BaseRepositoryInterface $packageRepository
     ) {
-        $this->circuitRepository = $circuitRepository;
+        $this->packageRepository = $packageRepository;
     }
 
     /**
      * @inheritDoc
      */
-    public function instance(UseCaseCommandInterface $command): CircuitProviderSignature
+    public function instance(UseCaseCommandInterface $command): PackageProviderSignature
     {
         $productId = $command->getProductId();
         $storeId = $command->getStoreId();
-        $this->circuit = $this->circuitRepository->getByProductAndStore($productId, $storeId);
+        $this->package = $this->packageRepository->getByProductAndStore($productId, $storeId);
 
         return $this;
     }
@@ -57,7 +62,7 @@ class Circuit implements CircuitProviderSignature
      */
     public function getDepartureDays(): array
     {
-        $result = unserialize($this->circuit->getDepartureDays());
+        $result = unserialize($this->package->getDepartureDays());
 
         return array_map(function ($value) {
             return $value - 1;
@@ -69,7 +74,7 @@ class Circuit implements CircuitProviderSignature
      */
     public function getNumberOfNights(): int
     {
-        return (int)$this->circuit->getNumberOfNights();
+        return (int)$this->package->getNumberOfNights();
     }
 
     /**
@@ -77,6 +82,6 @@ class Circuit implements CircuitProviderSignature
      */
     public function getDateTo(): string
     {
-        return $this->circuit->getDateTo();
+        return $this->package->getDateTo();
     }
 }

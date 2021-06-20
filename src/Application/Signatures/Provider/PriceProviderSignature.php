@@ -18,7 +18,7 @@ interface PriceProviderSignature extends ServiceProviderSignature
 {
     const AGGREGATE_AGENCY_CAR = 'AgencyCar';
     const AGGREGATE_HOTEL_ROOM = 'HotelRoom';
-    const AGGREGATE_CIRCUIT = 'Circuit';
+    const AGGREGATE_CIRCUIT = 'Package';
 
     /**
      * @param UseCaseCommandInterface $command

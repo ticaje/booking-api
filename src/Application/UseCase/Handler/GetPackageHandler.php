@@ -13,10 +13,10 @@ use Ticaje\Hexagonal\Application\Signatures\UseCase\HandlerInterface;
 use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
 
 /**
- * Class GetCircuitHandler
+ * Class GetPackageHandler
  * @package Ticaje\BookingApi\Application\UseCase\Handler
  */
-class GetCircuitHandler extends Base implements HandlerInterface
+class GetPackageHandler extends Base implements HandlerInterface
 {
     /**
      * @inheritDoc

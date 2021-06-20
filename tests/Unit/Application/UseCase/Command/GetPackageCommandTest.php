@@ -13,20 +13,20 @@ use Ticaje\Hexagonal\Test\Unit\Traits\DtoTestTrait;
 use Ticaje\BookingApi\Test\Unit\Traits\SimplifiedDtoTestTrait;
 
 use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
-use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetCircuitCommandSignature;
-use Ticaje\BookingApi\Application\UseCase\Command\GetCircuitCommand;
+use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetPackageCommandSignature;
+use Ticaje\BookingApi\Application\UseCase\Command\GetPackageCommand;
 
 /**
- * Class GetCircuitCommandTest
+ * Class GetPackageCommandTest
  * @package Ticaje\BookingApi\Test\Unit\Application\UseCase
  */
-class GetCircuitCommandTest extends ParentClass
+class GetPackageCommandTest extends ParentClass
 {
     use DtoTestTrait, SimplifiedDtoTestTrait;
 
-    protected $class = GetCircuitCommand::class;
+    protected $class = GetPackageCommand::class;
 
-    protected $interface = GetCircuitCommandSignature::class;
+    protected $interface = GetPackageCommandSignature::class;
 
     protected $attributes = ['productId', 'storeId'];
 

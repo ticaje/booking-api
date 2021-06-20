@@ -6,9 +6,9 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Application\Service\Provider\Circuit;
+namespace Ticaje\BookingApi\Application\Service\Provider\Package;
 
-use Ticaje\BookingApi\Application\Signatures\Provider\Circuit\PlanProviderSignature;
+use Ticaje\BookingApi\Application\Signatures\Provider\Package\PlanProviderSignature;
 use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
 
 /**

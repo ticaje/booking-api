@@ -11,10 +11,10 @@ use Ticaje\Contract\Persistence\Entity\EntityInterface;
 use Ticaje\Contract\Persistence\Repository\RepositoryInterface;
 
 /**
- * Interface CircuitRepositoryInterface
+ * Interface PackageRepositoryInterface
  * @package Ticaje\BookingApi\Application\Signatures\Repository
  */
-interface CircuitRepositoryInterface extends RepositoryInterface
+interface PackageRepositoryInterface extends RepositoryInterface
 {
     /**
      * @param int $productId

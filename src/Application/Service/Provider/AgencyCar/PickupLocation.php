@@ -26,6 +26,12 @@ class PickupLocation implements ServiceProviderSignature
     /** @var DisabledRepositoryInterface $disabledRepository */
     private $disabledRepository;
 
+    /**
+     * PickupLocation constructor.
+     *
+     * @param BaseRepositoryInterface $assignedRepository
+     * @param BaseRepositoryInterface $disabledRepository
+     */
     public function __construct(
         BaseRepositoryInterface $assignedRepository,
         BaseRepositoryInterface $disabledRepository

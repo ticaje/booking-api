@@ -15,7 +15,7 @@ use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
  * Class Plan
  * @package Ticaje\BookingApi\Application\Service\Provider
  */
-class Plan implements PlanProviderSignature
+class PlanAggregate implements PlanProviderSignature
 {
     /**
      * @inheritDoc

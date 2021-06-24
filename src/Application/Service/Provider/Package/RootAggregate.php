@@ -8,17 +8,17 @@ declare(strict_types=1);
 
 namespace Ticaje\BookingApi\Application\Service\Provider\Package;
 
-use Ticaje\BookingApi\Application\Repository\PackageRepositoryInterface;
 use Ticaje\BookingApi\Application\Signatures\Provider\Package\PackageProviderSignature;
+use Ticaje\BookingApi\Application\Signatures\Repository\PackageRepositoryInterface;
 use Ticaje\Contract\Persistence\Entity\EntityInterface;
 use Ticaje\Contract\Persistence\Repository\RepositoryInterface as BaseRepositoryInterface;
 use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
 
 /**
- * Class Package
+ * Class RootAggregate
  * @package Ticaje\BookingApi\Application\Service\Provider
  */
-class Package implements PackageProviderSignature
+class RootAggregate implements PackageProviderSignature
 {
     /** @var PackageRepositoryInterface $packageRepository */
     private $packageRepository;

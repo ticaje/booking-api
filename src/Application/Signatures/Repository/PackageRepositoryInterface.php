@@ -31,4 +31,5 @@ interface PackageRepositoryInterface extends RepositoryInterface
      * @return EntityInterface
      */
     public function getByProductAndStore(int $productId, int $storeId = 0): EntityInterface;
+
 }

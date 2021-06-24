@@ -17,7 +17,7 @@ use Ticaje\Hexagonal\Application\Signatures\UseCase\UseCaseCommandInterface;
  * Class Price
  * @package Ticaje\BookingApi\Application\Service\Provider
  */
-class Price extends BasePriceProvider implements PriceProviderSignature
+class PriceAggregate extends BasePriceProvider implements PriceProviderSignature
 {
     /**
      * @inheritDoc

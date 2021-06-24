@@ -25,7 +25,8 @@
     "version": "1.0.3",
     "autoload": {
         "psr-4": {
-            "Ticaje\\BookingApi\\": "src/"
+            "Ticaje\\BookingApi\\": "src/",
+            "Ticaje\\BookingApi\\Test\\": "tests/"
         }
     },
     "autoload-dev": {

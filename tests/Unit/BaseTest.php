@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase as ParentClass;
  * Class BaseTest
  * @package Ticaje\BookingApi\Test\Unit
  */
-abstract class BaseTest extends ParentClass
+class BaseTest extends ParentClass
 {
     protected $class;
 
@@ -25,16 +25,17 @@ abstract class BaseTest extends ParentClass
 
     public function setUp()
     {
-        $this->instance = new $this->class();
-    }
-
-    public function testProperInterface()
-    {
-        $this->assertInstanceOf($this->interface, $this->instance);
+        $className = $this->class;
+        $this->instance = new $className();
     }
 
     public function testProofOfLife()
     {
         $this->assertTrue(true);
+    }
+
+    public function testProperInterface()
+    {
+        $this->assertInstanceOf($this->interface, $this->instance);
     }
 }

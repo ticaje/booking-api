@@ -1,20 +1,18 @@
 <?php
 declare(strict_types=1);
-
 /**
  * Test Suite
  * @package Ticaje_BookingApi
- * @author Hector Luis Barrientos <ticaje@filetea.me>
+ * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
 namespace Ticaje\BookingApi\Test\Unit\Application\UseCase\Command;
 
-use Ticaje\Hexagonal\Test\Unit\Traits\DtoTestTrait;
-use Ticaje\BookingApi\Test\Unit\Traits\SimplifiedDtoTestTrait;
-
-use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
 use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetPackageCommandSignature;
 use Ticaje\BookingApi\Application\UseCase\Command\GetPackageCommand;
+use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
+use Ticaje\BookingApi\Test\Unit\Traits\SimplifiedDtoTestTrait;
+use Ticaje\Hexagonal\Test\Unit\Traits\DtoTestTrait;
 
 /**
  * Class GetPackageCommandTest
@@ -28,7 +26,10 @@ class GetPackageCommandTest extends ParentClass
 
     protected $interface = GetPackageCommandSignature::class;
 
-    protected $attributes = ['productId', 'storeId'];
+    protected $attributes = [
+        'productId',
+        'storeId',
+    ];
 
     public function testSettersGetters()
     {

@@ -8,7 +8,7 @@ declare(strict_types=1);
 
 namespace Ticaje\BookingApi\Test\Unit\Application\Service\Provider\Package;
 
-use Ticaje\BookingApi\Application\Service\Provider\Package\Price;
+use Ticaje\BookingApi\Application\Service\Provider\Package\PriceAggregate;
 use Ticaje\BookingApi\Application\Signatures\Provider\PriceProviderSignature;
 use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetPriceCommandSignature;
 use Ticaje\BookingApi\Application\UseCase\Command\GetPriceCommand;
@@ -20,7 +20,7 @@ use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
  */
 class PriceTest extends ParentClass
 {
-    protected $class = Price::class;
+    protected $class = PriceAggregate::class;
 
     protected $interface = PriceProviderSignature::class;
 

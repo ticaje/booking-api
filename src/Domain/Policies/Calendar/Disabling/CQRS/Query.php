@@ -10,6 +10,8 @@ namespace Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS;
 
 use DatePeriod;
 use DateTimeInterface;
+use Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\Constraint\Period;
+use Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\Constraint\WeekDays;
 use Ticaje\BookingApi\Domain\Signatures\PeriodSignature;
 
 /**
@@ -26,22 +28,22 @@ class Query implements QuerySignature
     /** @var string */
     private $format;
 
-    /** @var Constraint\WeekDays */
+    /** @var WeekDays  */
     private $weekDaysConstraint;
 
-    /** @var Constraint\Period */
+    /** @var Period  */
     private $periodConstraint;
 
     /**
      * Query constructor.
      *
-     * @param Constraint\WeekDays $weekDaysConstraint
-     * @param Constraint\Period   $periodConstraint
-     * @param string              $format
+     * @param WeekDays $weekDaysConstraint
+     * @param Period   $periodConstraint
+     * @param string   $format
      */
     public function __construct(
-        Constraint\WeekDays $weekDaysConstraint,
-        Constraint\Period $periodConstraint,
+        WeekDays $weekDaysConstraint,
+        Period $periodConstraint,
         string $format = PeriodSignature::DEFAULT_FORMAT
     ) {
         $this->format = $format;
@@ -87,21 +89,6 @@ class Query implements QuerySignature
     }
 
     /**
-     * @inheritDoc
-     */
-    public function fetchList(): array
-    {
-        usort($this->list, function ($previous, $next) {
-            $previousDate = strtotime($previous);
-            $nextDate = strtotime($next);
-
-            return ($previousDate - $nextDate);
-        });
-
-        return $this->list;
-    }
-
-    /**
      * @param $rule
      *
      * @return mixed
@@ -130,5 +117,20 @@ class Query implements QuerySignature
                 $this->list[] = $value;
             }
         }
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function fetchList(): array
+    {
+        usort($this->list, function ($previous, $next) {
+            $previousDate = strtotime($previous);
+            $nextDate = strtotime($next);
+
+            return ($previousDate - $nextDate);
+        });
+
+        return $this->list;
     }
 }

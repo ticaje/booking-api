@@ -6,7 +6,7 @@ declare(strict_types=1);
  * @author  Hector Luis Barrientos <ticaje@filetea.me>
  */
 
-namespace Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS\Constraint;
+namespace Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\Constraint;
 
 use DateInterval;
 use DatePeriod;
@@ -15,7 +15,7 @@ use Ticaje\BookingApi\Domain\Signatures\PeriodSignature;
 
 /**
  * Class Period
- * @package Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\CQRS\Constraint
+ * @package Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\Constraint
  */
 class Period implements PeriodSignature
 {

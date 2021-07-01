@@ -13,6 +13,7 @@ use Ticaje\BookingApi\Application\Signatures\Provider\PriceProviderSignature;
 use Ticaje\BookingApi\Application\Signatures\UseCase\Command\GetPriceCommandSignature;
 use Ticaje\BookingApi\Application\UseCase\Command\GetPriceCommand;
 use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
+use Ticaje\BookingApi\Test\Unit\Traits\ComplexConstructor;
 
 /**
  * Class PriceTest
@@ -20,16 +21,11 @@ use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
  */
 class PriceTest extends ParentClass
 {
+    use ComplexConstructor;
+
     protected $class = PriceAggregate::class;
 
     protected $interface = PriceProviderSignature::class;
-
-    public function setUp()
-    {
-        $this->instance = $this->getMockBuilder($this->class)
-            ->disableOriginalConstructor()
-            ->getMock();
-    }
 
     public function testLogic()
     {

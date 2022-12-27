@@ -8,9 +8,9 @@ declare(strict_types=1);
 
 namespace Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\Constraint;
 
-use DateInterval;
 use DatePeriod;
-use DateTime;
+use DateInterval;
+use DateTimeImmutable;
 use Ticaje\BookingApi\Domain\Signatures\PeriodSignature;
 
 /**
@@ -28,9 +28,9 @@ class Period implements PeriodSignature
         $to = $data['to'];
 
         return new DatePeriod(
-            new DateTime($from),
+            new DateTimeImmutable($from),
             new DateInterval('P1D'),
-            new DateTime($to)
+            new DateTimeImmutable($to)
         );
     }
 }

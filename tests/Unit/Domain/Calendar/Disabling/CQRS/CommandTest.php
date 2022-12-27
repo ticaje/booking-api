@@ -30,6 +30,7 @@ class CommandTest extends ParentClass
         $expected = [];
         $this->instance->method('extractType')->willReturn($expected);
         $methodCallResponse = $this->instance->extractType([]);
-        $this->assertTrue(is_array($methodCallResponse), $methodCallResponse, 'Assert returns array');
+        $this->assertTrue(is_array($methodCallResponse), 'Assert returns array');
+        $this->assertTrue(empty($methodCallResponse), 'Result is empty');
     }
 }

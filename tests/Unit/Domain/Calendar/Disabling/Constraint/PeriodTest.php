@@ -8,13 +8,14 @@ declare(strict_types=1);
 
 namespace Ticaje\BookingApi\Test\Unit\Domain\Calendar\Disabling\Constraint;
 
-use DateInterval;
+use TypeError;
 use DatePeriod;
-use DateTime;
-use Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\Constraint\Period;
+use DateInterval;
+use DateTimeImmutable;
+use ArgumentCountError;
 use Ticaje\BookingApi\Domain\Signatures\PeriodSignature;
 use Ticaje\BookingApi\Test\Unit\BaseTest as ParentClass;
-use Ticaje\BookingApi\Test\Unit\Traits\ComplexConstructor;
+use Ticaje\BookingApi\Domain\Policies\Calendar\Disabling\Constraint\Period;
 
 /**
  * Class PeriodTest
@@ -22,27 +23,76 @@ use Ticaje\BookingApi\Test\Unit\Traits\ComplexConstructor;
  */
 class PeriodTest extends ParentClass
 {
-    use ComplexConstructor;
-
     protected $interface = PeriodSignature::class;
 
     protected $class = Period::class;
 
-    public function testExtract()
+    /**
+     * @test
+     * @dataProvider validArguments
+     */
+    public function extract($expected, $arguments)
     {
-        $expected = (
-        new DatePeriod(
-            new DateTime(),
-            new DateInterval('P1D'),
-            (new DateTime())->modify('next monday')
-        ));
-        $this->instance->method('extract')->willReturn($expected);
-        $dataArgument = [
-            'from' => (new DateTime())->format(PeriodSignature::DEFAULT_FORMAT),
-            'to'   => (new DateTime())->modify('next monday')->format(PeriodSignature::DEFAULT_FORMAT),
-        ];
-        $methodCallResponse = $this->instance->extract($dataArgument);
-        $this->assertTrue(is_array($dataArgument));
+        $result = $this->instance->extract($arguments);
+        $this->assertTrue(is_array($arguments));
+        $this->assertEquals($expected, $result);
+        $this->assertInstanceOf(DatePeriod::class, $result, 'Assert returns DatePeriod type');
+    }
+
+    /**
+     * @test
+     * @dataProvider validArguments
+     */
+    public function extractWrongFromArgument($expected, $arguments)
+    {
+        $this->expectException(TypeError::class);
+        $arguments['from'] = null;
+        $methodCallResponse = $this->instance->extract($arguments);
         $this->assertInstanceOf(DatePeriod::class, $methodCallResponse, 'Assert returns DatePeriod type');
+    }
+
+    /**
+     * @test
+     */
+    public function extractMissingArgument()
+    {
+        $this->expectException(ArgumentCountError::class);
+        $methodCallResponse = $this->instance->extract();
+        $this->assertInstanceOf(DatePeriod::class, $methodCallResponse, 'Assert returns DatePeriod type');
+    }
+
+    /**
+     * Summary of validArguments
+     * @return array<array>
+     */
+    public function validArguments()
+    {
+        $from = (new DateTimeImmutable())->format(PeriodSignature::DEFAULT_FORMAT);
+        $to = (new DateTimeImmutable())->modify('1 months')->format(PeriodSignature::DEFAULT_FORMAT);
+        $interval = new DateInterval('P1D');
+
+        $expected = (
+            new DatePeriod(
+                new DateTimeImmutable($from),
+                $interval,
+                (new DateTimeImmutable($to))
+            )
+        );
+
+        $arguments = [
+            'from' => $from,
+            'to' => $to,
+        ];
+
+        return [
+            [
+                $expected,
+                $arguments
+            ],
+            [
+                $expected,
+                $arguments
+            ]
+        ];
     }
 }

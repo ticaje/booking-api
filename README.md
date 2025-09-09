@@ -72,7 +72,7 @@ The difference of using Use Case approach is that we can call it from any contex
 ## Fully Hexagonal
 
 The DTO is the key to decouple the persistence of data from Domain objects cause is governed by an interface or service contract that seals the domain policy
-to receive the data that Domain understands, so is responsibility of consumers to make proper transformations to a valid Type that Domain expects.
+to receive the data that Domain understands, so it is responsibility of consumers to make proper transformations to a valid Type that Domain expects.
 
 Also, it can be included in any platform or application cause is created independent from any infrastructure related agencies, it only depends on few low level libraries that has no great dependencies on rich agencies.
 

@@ -4,7 +4,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ticaje/booking-api.svg?style=flat-square)](https://packagist.org/packages/ticaje/booking-api)
 [![Quality Score](https://img.shields.io/scrutinizer/g/ticaje/booking-api.svg?style=flat-square)](https://scrutinizer-ci.com/g/ticaje/booking-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/ticaje/booking-api.svg?style=flat-square)](https://packagist.org/packages/ticaje/booking-api)
-[![Blog](https://img.shields.io/badge/Blog-hectorbarrientos.com-magenta)](https://hectorbarrientos.com)
+[![Author](https://img.shields.io/badge/HBLateral.com-%2302113a?style=labelColor=lightgrey)](https://hblateral.com)
 
 ## Preface
 
